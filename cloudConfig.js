@@ -1,10 +1,5 @@
 const cloudinary = require("cloudinary").v2;
-const multerCloudinary = require("multer-storage-cloudinary");
-
-const CloudinaryStorage =
-  multerCloudinary.CloudinaryStorage ||
-  multerCloudinary.default ||
-  multerCloudinary;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -13,9 +8,9 @@ cloudinary.config({
 });
 
 const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
+  cloudinary,
   params: {
-    folder: "wanderlust_DEV",
+    folder: "StaySphere_DEV",
     allowed_formats: ["jpeg", "png", "jpg"],
   },
 });
